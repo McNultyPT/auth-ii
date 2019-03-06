@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 
 const Users = require('../users/users-model.js');
 const secrets = require('../secret/secrets.js');
+const restricted = require('./restricted-middleware.js');
 
 router.get('/', (req, res) => {
     res.send('Testing');
@@ -44,6 +45,16 @@ router.post('/login', (req, res) => {
         .catch(err => {
             res.status(500).json(err);
         });
+});
+
+router.get('/users', restricted, (req, res) => {
+    Users.find()
+        .then(users => {
+            res.json(users);
+        })
+        .catch(err => {
+            res.send(err);
+        })
 });
 
 function generateToken(user) {
