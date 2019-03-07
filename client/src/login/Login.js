@@ -7,6 +7,22 @@ export default class Login extends Component {
     password: ""
   };
 
+  handleChanges = e => {
+      const { name, value } = e.target;
+      this.setState({ [name]: value });
+  };
+
+  handleSubmit = e => {
+      e.preventDefault();
+      const endpoint = 'http://localhost:7000/api/login';
+      
+      axios
+        .post(endpoint, this.state)
+        .then(res => {
+            localStorage.setItem('jwt', res.data.token);
+        }) 
+  }
+
   render() {
     return (
         <div>
@@ -37,21 +53,3 @@ export default class Login extends Component {
     );
   }
 }
-
-// getBooks = () => {
-//     const endpoint =
-//       'https://oer-bookr-api.herokuapp.com/books';
-//     axios
-//       .get(endpoint, {
-//         headers: {Authorization: localStorage.getItem('jwt')}
-//       })
-//       .then(res => {
-//         console.log(res.data);
-//         this.setState({
-//             books: res.data
-//         })
-//       })
-//       .catch(err => {
-//         this.setState({ errorMessage: err.response.data.message });
-//       });
-//   };
