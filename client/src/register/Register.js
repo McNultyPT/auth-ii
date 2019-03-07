@@ -67,6 +67,7 @@ export default class Register extends Component {
                         />
                     <button type='submit'>Sign Up</button>
                 </form>
+                <img src='https://images-na.ssl-images-amazon.com/images/I/619CX5-OVBL._UX522_.jpg' alt='ministry of magic'/>
             </div>
         );
     }

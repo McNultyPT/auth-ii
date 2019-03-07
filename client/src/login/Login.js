@@ -50,6 +50,7 @@ export default class Login extends Component {
                 <label htmlFor="department" />
                 <button type="submit">Login</button>
             </form>
+            <img src='https://images-na.ssl-images-amazon.com/images/I/619CX5-OVBL._UX522_.jpg' alt='ministry of magic'/>
         </div>
     );
   }
