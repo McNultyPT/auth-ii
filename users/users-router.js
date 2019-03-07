@@ -50,7 +50,13 @@ router.post('/login', (req, res) => {
 router.get('/users', restricted, (req, res) => {
     Users.find()
         .then(users => {
-            res.json(users);
+            const filteredUsers = users.filter(user => {
+                if (user.department === req.decodedJwt.department) {
+                    return user;
+                }
+                return null;
+            });
+            res.json(filteredUsers);
         })
         .catch(err => {
             res.send(err);
@@ -60,7 +66,8 @@ router.get('/users', restricted, (req, res) => {
 function generateToken(user) {
     const payload = {
         subject: user.id,
-        username: user.username
+        username: user.username,
+        department: user.department
     };
     
     const options = {
