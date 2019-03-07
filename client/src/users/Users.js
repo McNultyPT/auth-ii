@@ -13,6 +13,13 @@ class Users extends Component {
             </div>
         );
     }
+
+    componentDidMount() {
+        axios.get('http://localhost:7000/api/users').then(res => {
+            console.log(res.data)
+            this.setState({ users: res.data })
+        });
+    }
 }
 
 export default Users;
