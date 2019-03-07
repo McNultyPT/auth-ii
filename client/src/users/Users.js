@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import requiresAuth from '../auth/requiresAuth';
+
 class Users extends Component {
     state = {
         users: []
@@ -10,6 +12,14 @@ class Users extends Component {
         return (
             <div>
                 <h2>Ministry of Magic Employess</h2>
+                {this.state.users.map(user => {
+                    return (
+                        <div key={user.id}>
+                            <h4>{user.username}</h4>
+                            <p>{user.department}</p>
+                        </div>
+                    )
+                })}
             </div>
         );
     }
@@ -22,4 +32,4 @@ class Users extends Component {
     }
 }
 
-export default Users;
+export default requiresAuth(Users);
