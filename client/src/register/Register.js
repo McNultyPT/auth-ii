@@ -27,6 +27,7 @@ export default class Register extends Component {
                         .post(loginEndpoint, { username, password})
                         .then(res => {
                             localStorage.setItem('jwt', res.data.token);
+                            this.props.history.push('/users');
                         })
             })
             .catch(err => console.log(err));

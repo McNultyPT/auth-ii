@@ -11,7 +11,7 @@ class Users extends Component {
     render() {
         return (
             <div>
-                <h2>Ministry of Magic Employess</h2>
+                <h2>Employees</h2>
                 {this.state.users.map(user => {
                     return (
                         <div key={user.id}>
