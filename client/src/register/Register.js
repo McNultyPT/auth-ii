@@ -2,14 +2,11 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 export default class Register extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            username: '',
-            password: '',
-            department: ''
-        };
-    }
+    state = {
+        username: '',
+        password: '',
+        department: ''
+    };
 
     handleChanges = e => {
         const { name, value } = e.target;
@@ -18,7 +15,6 @@ export default class Register extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        
         const registerEndpoint = 'http://localhost:7000/api/register';
 
         axios
