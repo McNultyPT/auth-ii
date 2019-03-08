@@ -27,7 +27,7 @@ export default class Login extends Component {
   render() {
     return (
         <div>
-            <h2>Login</h2>
+            <h2>Sign In</h2>
             <form onSubmit={this.handleSubmit}>
                 <label htmlFor="username" />
                     <input
@@ -48,7 +48,7 @@ export default class Login extends Component {
                         onChange={this.handleChanges}
                     />
                 <label htmlFor="department" />
-                <button type="submit">Login</button>
+                <button type="submit">Sign In</button>
             </form>
             <img src='https://images-na.ssl-images-amazon.com/images/I/619CX5-OVBL._UX522_.jpg' alt='ministry of magic'/>
         </div>

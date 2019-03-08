@@ -8,6 +8,8 @@ import Users from './users/Users';
 
 class App extends Component {
   render() {
+    const token = localStorage.getItem('jwt');
+
     return (
       <div className="App">
         <header>
@@ -19,7 +21,7 @@ class App extends Component {
             <> | </>
             <NavLink to='/signup'>Employees</NavLink>
             <> | </>
-            <button onClick={this.logout}>Sign Out</button>
+            { token ? <button onClick={this.logout}>Sign Out</button> : null }
           </nav>
         </header>
         <main>
@@ -38,3 +40,5 @@ class App extends Component {
 }
 
 export default withRouter(App);
+
+{/* <button onClick={this.logout}>Sign Out</button> */}
